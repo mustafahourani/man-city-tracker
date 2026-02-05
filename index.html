@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man City Premier League Season Tracker 2025/26</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-inner">
+                <img src="https://a.espncdn.com/i/teamlogos/soccer/500/382.png" alt="Man City" class="club-logo">
+                <div class="header-text">
+                    <h1>Manchester City</h1>
+                    <p>Premier League Season Tracker 2025/26</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Strip -->
+        <section class="stats-strip">
+            <div class="stat">
+                <span class="stat-value" id="played">-</span>
+                <span class="stat-label">P</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="won">-</span>
+                <span class="stat-label">W</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="drawn">-</span>
+                <span class="stat-label">D</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="lost">-</span>
+                <span class="stat-label">L</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="goals-for">-</span>
+                <span class="stat-label">GF</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="goals-against">-</span>
+                <span class="stat-label">GA</span>
+            </div>
+            <div class="stat highlight">
+                <span class="stat-value" id="points">-</span>
+                <span class="stat-label">PTS</span>
+            </div>
+        </section>
+
+        <!-- Tab Navigation -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="results">Results</button>
+            <button class="tab" data-tab="fixtures">Fixtures</button>
+        </nav>
+
+        <!-- Content -->
+        <main class="content">
+            <!-- Refresh Button -->
+            <div class="refresh-container">
+                <button id="refresh-btn" class="refresh-btn">Refresh</button>
+            </div>
+
+            <!-- Results Section -->
+            <section class="matches-section" id="results-section">
+                <div class="matches-list" id="results-list">
+                    <div class="loading">Loading results...</div>
+                </div>
+            </section>
+
+            <!-- Fixtures Section -->
+            <section class="matches-section hidden" id="fixtures-section">
+                <div class="matches-list" id="fixtures-list">
+                    <div class="loading">Loading fixtures...</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Data from ESPN • Last updated: <span id="last-updated">-</span></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
