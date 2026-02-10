@@ -351,22 +351,6 @@ body {
     color: white;
 }
 
-/* Card border accent based on result */
-.match-card.win {
-    border-left: 4px solid var(--win);
-}
-
-.match-card.draw {
-    border-left: 4px solid var(--draw);
-}
-
-.match-card.loss {
-    border-left: 4px solid var(--loss);
-}
-
-.match-card.fixture {
-    border-left: 4px solid var(--city-blue);
-}
 
 /* Fixture Card (no score) */
 .fixture-card .match-score {
