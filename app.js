@@ -253,6 +253,7 @@ function updateStatsDisplay(stats) {
     document.getElementById('lost').textContent = stats.lost;
     document.getElementById('goals-for').textContent = stats.goalsFor;
     document.getElementById('goals-against').textContent = stats.goalsAgainst;
+    document.getElementById('goal-difference').textContent = stats.goalsFor - stats.goalsAgainst;
     document.getElementById('points').textContent = stats.points;
 }
 
