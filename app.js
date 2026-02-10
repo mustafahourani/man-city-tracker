@@ -398,8 +398,19 @@ function setupRefreshButton() {
     }
 }
 
+// Display user's timezone in the header
+function displayTimezone() {
+    const badge = document.getElementById('timezone-badge');
+    if (!badge) return;
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const abbr = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+    badge.textContent = abbr;
+    badge.title = tz;
+}
+
 // Main init function
 async function init() {
+    displayTimezone();
     setupTabs();
     setupRefreshButton();
     await loadData();
