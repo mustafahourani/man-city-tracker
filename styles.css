@@ -40,7 +40,7 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, var(--city-dark) 0%, #2a4a7a 100%);
+    background: var(--city-light);
     padding: 24px 20px;
     position: sticky;
     top: 0;
