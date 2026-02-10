@@ -53,6 +53,18 @@ body {
     gap: 16px;
 }
 
+.timezone-badge {
+    margin-left: auto;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--city-light);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 .club-logo {
     width: 56px;
     height: 56px;
