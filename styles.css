@@ -40,7 +40,7 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, var(--city-dark) 0%, #2a4a7a 100%);
+    background: var(--city-light);
     padding: 24px 20px;
     position: sticky;
     top: 0;
@@ -57,8 +57,8 @@ body {
     margin-left: auto;
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--city-light);
-    background: rgba(255, 255, 255, 0.1);
+    color: var(--city-dark);
+    background: rgba(255, 255, 255, 0.4);
     padding: 6px 10px;
     border-radius: 6px;
     white-space: nowrap;
@@ -80,7 +80,7 @@ body {
 
 .header-text p {
     font-size: 0.875rem;
-    color: var(--city-light);
+    color: var(--city-dark);
     margin-top: 2px;
 }
 
