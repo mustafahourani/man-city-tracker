@@ -251,6 +251,11 @@ body {
     color: #fcd34d;
 }
 
+.match-competition.club-world-cup {
+    background: rgba(217, 170, 56, 0.2);
+    color: #f0d264;
+}
+
 .match-teams {
     display: flex;
     align-items: center;

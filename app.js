@@ -124,9 +124,10 @@ function getCompetitionClass(competition) {
         'FA Cup': 'fa-cup',
         'Carabao Cup': 'carabao-cup',
         'Community Shield': 'community-shield',
-        'Friendly': 'friendly'
+        'Friendly': 'friendly',
+        'Club World Cup': 'club-world-cup'
     };
-    return map[competition] || 'premier-league';
+    return map[competition] || 'other';
 }
 
 // Format date
@@ -219,24 +220,18 @@ function calculateStats(results) {
         drawn: 0,
         lost: 0,
         goalsFor: 0,
-        goalsAgainst: 0,
-        points: 0
+        goalsAgainst: 0
     };
 
-    // Only count Premier League matches for the stats
-    const leagueResults = results.filter(m => m.competition === 'Premier League');
-
-    leagueResults.forEach(match => {
+    results.forEach(match => {
         stats.played++;
         stats.goalsFor += match.cityScore;
         stats.goalsAgainst += match.opponentScore;
 
         if (match.result === 'win') {
             stats.won++;
-            stats.points += 3;
         } else if (match.result === 'draw') {
             stats.drawn++;
-            stats.points += 1;
         } else {
             stats.lost++;
         }
@@ -253,42 +248,34 @@ function updateStatsDisplay(stats) {
     document.getElementById('lost').textContent = stats.lost;
     document.getElementById('goals-for').textContent = stats.goalsFor;
     document.getElementById('goals-against').textContent = stats.goalsAgainst;
-    document.getElementById('goal-difference').textContent = stats.goalsFor - stats.goalsAgainst;
-    document.getElementById('points').textContent = stats.points;
 }
 
 // Render results
 function renderResults(results) {
     const container = document.getElementById('results-list');
 
-    // Filter to Premier League only
-    const plResults = results.filter(m => m.competition === 'Premier League');
-
-    if (plResults.length === 0) {
-        container.innerHTML = '<div class="empty">No Premier League results yet</div>';
+    if (results.length === 0) {
+        container.innerHTML = '<div class="empty">No results yet</div>';
         return;
     }
 
     // Sort by date (most recent first)
-    plResults.sort((a, b) => new Date(b.date) - new Date(a.date));
-    container.innerHTML = plResults.map(createResultCard).join('');
+    results.sort((a, b) => new Date(b.date) - new Date(a.date));
+    container.innerHTML = results.map(createResultCard).join('');
 }
 
 // Render fixtures
 function renderFixtures(fixtures) {
     const container = document.getElementById('fixtures-list');
 
-    // Filter to Premier League only
-    const plFixtures = fixtures.filter(m => m.competition === 'Premier League');
-
-    if (plFixtures.length === 0) {
-        container.innerHTML = '<div class="empty">No upcoming Premier League fixtures</div>';
+    if (fixtures.length === 0) {
+        container.innerHTML = '<div class="empty">No upcoming fixtures</div>';
         return;
     }
 
     // Sort by date (soonest first)
-    plFixtures.sort((a, b) => new Date(a.date) - new Date(b.date));
-    container.innerHTML = plFixtures.map(createFixtureCard).join('');
+    fixtures.sort((a, b) => new Date(a.date) - new Date(b.date));
+    container.innerHTML = fixtures.map(createFixtureCard).join('');
 }
 
 // Setup tabs
@@ -371,7 +358,7 @@ async function loadData() {
 
         console.log('Results:', results.length, 'Fixtures:', fixtures.length);
 
-        // Update stats (Premier League only)
+        // Update stats (all competitions)
         const stats = calculateStats(results);
         updateStatsDisplay(stats);
 
