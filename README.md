@@ -1,13 +1,16 @@
-# Man City Premier League Season Tracker 2025/26
+# Man City Season Tracker 2025/26
 
-A live tracker for Manchester City's Premier League season, pulling real-time data from ESPN's API.
+A live tracker for Manchester City's season across all competitions, pulling real-time data from ESPN's API.
 
 ## Features
 
-- **Live Results** — View all Premier League match results with scores
-- **Upcoming Fixtures** — See scheduled Premier League matches
-- **Season Stats** — Track P/W/D/L/GF/GA/Points
+- **All Competitions** — Track Premier League, Champions League, FA Cup, Carabao Cup, and Club World Cup
+- **Live Results** — View all match results with scores and competition badges
+- **Upcoming Fixtures** — See scheduled matches across all competitions
+- **Season Stats** — Track P/W/D/L/GF/GA across all competitions
 - **Visual Result Indicators** — Color-coded W/D/L badges
+- **Competition Badges** — Distinct color-coded badges for each competition
+- **Timezone Display** — Shows your local timezone in the header
 - **Real-time Refresh** — Click to pull latest data from ESPN
 
 ## Tech Stack
