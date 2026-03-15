@@ -133,14 +133,14 @@ function getCompetitionClass(competition) {
 // Format date
 function formatDate(dateString) {
     const date = new Date(dateString);
-    const options = { weekday: 'short', month: 'short', day: 'numeric' };
+    const options = { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'America/New_York' };
     return date.toLocaleDateString('en-US', options);
 }
 
 // Format time
 function formatTime(dateString) {
     const date = new Date(dateString);
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
 }
 
 // Create result card HTML
@@ -307,7 +307,8 @@ function updateLastUpdated() {
     const now = new Date();
     document.getElementById('last-updated').textContent = now.toLocaleTimeString('en-US', {
         hour: 'numeric',
-        minute: '2-digit'
+        minute: '2-digit',
+        timeZone: 'America/New_York'
     });
 }
 
@@ -385,14 +386,13 @@ function setupRefreshButton() {
     }
 }
 
-// Display user's timezone in the header
+// Display EST timezone in the header
 function displayTimezone() {
     const badge = document.getElementById('timezone-badge');
     if (!badge) return;
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const abbr = new Date().toLocaleTimeString('en-US', { timeZoneName: 'short' }).split(' ').pop();
+    const abbr = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }).split(' ').pop();
     badge.textContent = abbr;
-    badge.title = tz;
+    badge.title = 'America/New_York';
 }
 
 // Main init function
