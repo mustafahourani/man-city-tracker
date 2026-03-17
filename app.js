@@ -133,14 +133,14 @@ function getCompetitionClass(competition) {
 // Format date
 function formatDate(dateString) {
     const date = new Date(dateString);
-    const options = { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'America/New_York' };
+    const options = { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'America/Los_Angeles' };
     return date.toLocaleDateString('en-US', options);
 }
 
 // Format time
 function formatTime(dateString) {
     const date = new Date(dateString);
-    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/New_York' });
+    return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles' });
 }
 
 // Create result card HTML
@@ -308,7 +308,7 @@ function updateLastUpdated() {
     document.getElementById('last-updated').textContent = now.toLocaleTimeString('en-US', {
         hour: 'numeric',
         minute: '2-digit',
-        timeZone: 'America/New_York'
+        timeZone: 'America/Los_Angeles'
     });
 }
 
@@ -386,13 +386,13 @@ function setupRefreshButton() {
     }
 }
 
-// Display EST timezone in the header
+// Display PST timezone in the header
 function displayTimezone() {
     const badge = document.getElementById('timezone-badge');
     if (!badge) return;
-    const abbr = new Date().toLocaleTimeString('en-US', { timeZone: 'America/New_York', timeZoneName: 'short' }).split(' ').pop();
+    const abbr = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', timeZoneName: 'short' }).split(' ').pop();
     badge.textContent = abbr;
-    badge.title = 'America/New_York';
+    badge.title = 'America/Los_Angeles';
 }
 
 // Main init function
